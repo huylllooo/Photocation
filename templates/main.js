@@ -13,12 +13,21 @@ function loadData() {
         var mapUrl = "https://www.google.com/maps/@";
         if (response.success) {
             $.each(response.data.photos, function() {
-                $('.grid').append('<div class="grid-item contain"><h5>' + '</h5><a href="' + siteurl + this.id + '" target="_blank"><img src="'+ this.image_url + '" class="image" width="99%"/>' +
-                    '<div class="middle">'+
-                        '<div class="text glyphicon glyphicon-map-marker"><a href="https://www.google.co.jp/maps/?q=' + this.latitude + ',' + this.longitude + '" target="_blank"> Map</a></div>'+
-                        '<div class="text glyphicon glyphicon-save"><a href="#"> Save</a></div>'+
-                    '</div>'+
-                    '</div>');
+                // Check if location available
+                if (this.latitude && this.longitude) {
+                    $('.grid').append('<div class="grid-item contain"><h5>' + '</h5><a href="' + siteurl + this.id + '" target="_blank"><img src="'+ this.image_url + '" class="image" width="99%"/>' +
+                        '<div class="middle">'+
+                            '<div class="text glyphicon glyphicon-map-marker"><a href="https://www.google.co.jp/maps/?q=' + this.latitude + ',' + this.longitude + '" target="_blank"> Map</a></div>'+
+                            '<div class="text glyphicon glyphicon-save"><a href="#"> Save</a></div>'+
+                        '</div>'+
+                        '</div>');
+                } else {
+                    $('.grid').append('<div class="grid-item contain"><h5>' + '</h5><a href="' + siteurl + this.id + '" target="_blank"><img src="'+ this.image_url + '" class="image" width="99%"/>' +
+                        '<div class="middle">'+
+                            '<div class="text glyphicon glyphicon-save"><a href="#"> Save</a></div>'+
+                        '</div>'+
+                        '</div>');
+                }
 
             });
             // $('#grid').masonry({

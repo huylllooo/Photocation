@@ -23,6 +23,9 @@ class Category(Base):
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
 
+    url = Column(String(250))
+    siteurl = Column(String(250))
+
     @property
     def serialize(self):
         """Return object data in easily serializeable format"""

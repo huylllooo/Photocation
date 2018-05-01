@@ -3,6 +3,9 @@ Photocation
 
 This small website will show the popular photos that were taken in the city and where the photographers took them with a simple click of a button.
 
+![alt text](img/ss1.png)
+![alt text](img/ss2.png)
+
 ## Getting Started
 
 Clone the repository on your computer to run it locally. This is the instructions to run the app via a virtual Linux machine on a Windows computer.
